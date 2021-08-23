@@ -2,23 +2,47 @@
 <script src="https://unpkg.com/kaboom@next/dist/kaboom.js"></script>
 <script type="module">
     // init context
-    const k = kaboom({
-        width: 1920, // width of canvas
-        height: 1080
+    kaboom({
+        global: true,
+        scale: 3,
+        fullscreen: true,
+        clearColor: [0, 0, 0, 1],
+        debug: true,
     });
+    const PIPE_OPEN = 80;
+    const PIPE_MIN_HEIGHT = 16;
+    const JUMP_FORCE = 320;
+    const SPEED = 120;
+    const CEILING = -60;
     // load sprite
-    k.loadSprite('capivara', 'https://cdn.discordapp.com/avatars/811255307673010246/e62838ac7e74bd5879f19ad254b457e7.png?size=160');
+    loadSprite('capivara', 'https://cdn.discordapp.com/avatars/811255307673010246/e62838ac7e74bd5879f19ad254b457e7.png?size=160');
     // compose the player game object from multiple built-in components
-    const birdy = k.add([
-        k.sprite("capivara"),
-        k.pos(20, 20),
-        k.area(),
-        k.body(),
+    const birdy = add([
+        sprite("capivara"),
+        pos(20, 20),
+        area(),
+        body(),
     ]);
     birdy.width = 75;
     birdy.height = 75;
+    birdy.action(() => {
+        if (birdy.pos.y >= height() || birdy.pos.y <= CEILING) {
+            // switch to "death" scene
+            go("death", score);
+        }
+    });
+    scene("death", (score) => {
+        add([
+            text(`${score}`, 64),
+            pos(width() / 2, height() / 2),
+            origin("center"),
+        ]);
+        keyPress("space", () => go("main"));
+        mouseClick(() => go("main"));
+    });
     // press space to jump (jump behavior is provided by "body" component)
-    k.keyPress("space", () => birdy.jump());
+    keyPress("space", () => birdy.jump());
+    mouseClick(() => birdy.jump());
 </script>
 
 </html>
