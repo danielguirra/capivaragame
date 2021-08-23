@@ -1,0 +1,24 @@
+<html>
+<script src="https://unpkg.com/kaboom@next/dist/kaboom.js"></script>
+<script type="module">
+    // init context
+    const k = kaboom({
+        width: 1920, // width of canvas
+        height: 1080
+    });
+    // load a default sprite "mark"
+    k.loadSprite('capivara', 'https://cdn.discordapp.com/avatars/811255307673010246/e62838ac7e74bd5879f19ad254b457e7.png?size=160');
+    // compose the player game object from multiple built-in components
+    const birdy = k.add([
+        k.sprite("capivara"),
+        k.pos(20, 20),
+        k.area(),
+        k.body(),
+    ]);
+    birdy.width = 75;
+    birdy.height = 75;
+    // press space to jump (jump behavior is provided by "body" component)
+    k.keyPress("space", () => birdy.jump());
+</script>
+
+</html>
