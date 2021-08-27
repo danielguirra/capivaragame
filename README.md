@@ -2,7 +2,7 @@
 
 Summary 
 ---
-a spaceship game using the kaboom js library
+A 🚀🚀🚀🚀🚀 spaceship game using the kaboom js library
 --
 
 ### Requirements
