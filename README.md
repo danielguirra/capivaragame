@@ -1,2 +1,2 @@
 # Capivara game
-a game similar to flappy bird a using the kaboomjs library
+a spaceship game using the kaboom js library
