@@ -5,6 +5,9 @@ Summary
 A 🚀🚀🚀🚀🚀 spaceship game using the kaboom js library
 --
 
+### Test here
+[Game](https://capivaragame.danielguirra.repl.co/) link 24/7 online
+
 ### Requirements
 
 For development, you will only need Node.js and a node global package, installed in your environement.
