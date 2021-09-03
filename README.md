@@ -6,7 +6,7 @@ A 🚀🚀🚀🚀🚀 spaceship game using the kaboom js library
 --
 
 ### Test here
-[Game](https://capivaragame.danielguirra.repl.co/) link 24/7 online
+[Game](https://kaboomjs.com/examples#shooter) link 24/7 online
 
 ### Requirements
 
